@@ -1,0 +1,268 @@
+:root {
+  --primary-orange: #f89e52;
+  --primary-teal: #5e969a;
+  --primary-gold: #fcd55b;
+  --bg-light: #fdf8f1;
+  --text-dark: #2d4756;
+  --text-muted: #5a6a75;
+  --shadow-soft: rgba(0,0,0,0.08);
+  --shadow-orange: rgba(248, 158, 82, 0.3);
+  --shadow-teal: rgba(94, 150, 154, 0.2);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root, .app-root {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Quicksand', 'Fredoka', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.5;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px var(--shadow-orange);
+}
+.btn-primary { background: var(--primary-orange); color: #fff; }
+.btn-primary:hover { transform: scale(1.05); }
+.btn-secondary { background: var(--primary-teal); color: #fff; }
+.btn-secondary:hover { transform: scale(1.05); }
+
+/* Headings */
+h1,h2,h3,h4,h5,h6 { font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
+p { margin-bottom: 16px; color: var(--text-muted); }
+
+.text-center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 30px;
+  padding: 24px;
+  box-shadow: 0 8px 25px var(--shadow-soft);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: scale(1.03); }
+
+/* Standardize typography inside boxes/cards across the site */
+.card, .approach-card, .vmv-box, .faculty-card, .info-card, .about-panel, .lead-card {
+  color: var(--text-dark);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.card h3, .card h4, .card h5, .approach-card h4, .vmv-box h5, .faculty-info h4 {
+  margin-bottom: 8px;
+  font-size: 18px;
+  line-height: 1.15;
+  color: var(--text-dark);
+}
+
+.card p, .approach-card p, .vmv-box p, .faculty-card .muted, .info-card p {
+  margin-bottom: 10px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+.card .lead, .lead-card .lead, .vision-panel .lead {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.35;
+}
+
+/* Tighter spacing for small cards */
+.vmv-box, .approach-card, .faculty-card { padding: 12px; }
+
+/* Ensure readable contrast for labels inside colored dots */
+.dot-label, .faculty-card .initials { text-shadow: 0 1px 0 rgba(0,0,0,0.06); }
+
+/* Soft full-width sections */
+.full-bleed { width: 100%; box-sizing: border-box; }
+.full-bleed.min-vh { min-height: 100vh; }
+/* Footer Styles */
+.site-footer {
+  background: #123b66; /* distinct color from page background */
+  color: #fff;
+  padding: 48px 28px 28px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid h3, .footer-grid h4 {
+  margin-bottom: 12px;
+  color: #fcd55b; /* gold accent */
+}
+
+.footer-grid p, .footer-grid li, .footer-grid a {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.footer-grid a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-grid a:hover {
+  color: #fcd55b;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 28px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Ensure footer stays at bottom if content is short */
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-root > main {
+  flex: 1; /* pushes footer to bottom */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+/* ============================= */
+/* Global Spacing & Section Layout */
+/* ============================= */
+
+/* Add vertical spacing between all main sections */
+main > section,
+.content-full,
+.hero-full,
+.home-page > section,
+.about-section,
+.about-page,
+.faculty-full,
+.gallery-full,
+.why-full,
+.facilities-full,
+.contact-full,
+.cta-section {
+  margin-bottom: 36px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+/* Consistent spacing for headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+
+/* Paragraph spacing */
+p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* Cards and info panels spacing */
+.cards, .cards-row, .faculty-grid, .image-grid {
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* Info card padding */
+.info-card, .vmv-card, .about-panel, .auth-card {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+/* Buttons spacing */
+.btn {
+  margin-top: 12px;
+}
+
+/* Forms & inputs spacing */
+input, select, textarea, button {
+  margin-bottom: 16px;
+}
+
+/* Footer spacing */
+.site-footer {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+/* Hero section spacing */
+.hero-full, .home-page .hero {
+  padding-top: 56px;
+  padding-bottom: 56px;
+}
+
+/* Section dividers (optional waves/blobs) */
+.section-divider {
+  height: 40px;
+  margin: 40px 0;
+  overflow: hidden;
+}
+
+/* Utility spacing classes for one-off adjustments */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-40 { margin-bottom: 40px; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  main > section,
+  .content-full,
+  .hero-full,
+  .about-section,
+  .about-page {
+    padding-top: 24px;
+    padding-bottom: 24px;
+    margin-bottom: 24px;
+  }
+
+  .cards, .cards-row, .faculty-grid, .image-grid {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .info-card, .vmv-card, .about-panel, .auth-card {
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+}
+
