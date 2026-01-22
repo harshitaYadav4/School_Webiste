@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import siteData from '../data/siteData'
-import SectionTitle from '../components/SectionTitle'
-import Loader from '../components/Common/Loader'
+import SectionTitle from '../Components/SectionTitle'
+import Loader from '../Components/Common/Loader'
 
 export default function Contact(){
   const [loading,setLoading] = useState(true)

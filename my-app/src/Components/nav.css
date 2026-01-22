@@ -1,9 +1,91 @@
-.site-nav{background:linear-gradient(90deg,#001f4d,#01213f);color:#fff;position:sticky;top:0;z-index:60}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
-.brand{display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none}
-.logo{width:56px;height:56px}
-.brand-title{font-size:16px;margin:0;font-weight:700}
-.brand-sub{font-size:12px;margin:0;opacity:0.9}
-.menu a{color:#cfe8ff;margin:0 10px;text-decoration:none;font-weight:600}
-.menu a:hover{color:#fff}
-.nav-cta .btn{background:#d4af37;color:#01213f;padding:8px 12px;border-radius:6px;text-decoration:none;font-weight:700}
+/* Navbar container */
+.site-nav {
+  background: var(--primary-teal); /* Teal color */
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  padding: 12px 24px; /* small padding so navbar is not huge */
+  display: flex;
+  justify-content: center; /* center content horizontally */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  height: auto; /* important: remove any fixed or min-height */
+}
+
+/* Inner content container */
+.nav-inner {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand / Logo */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #fff;
+}
+.brand img {
+  width: 50px;
+  height: 50px;
+}
+.brand-title {
+  font-size: 18px;
+  font-weight: 700;
+}
+.brand-sub {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* Menu links */
+.menu {
+  display: flex;
+  gap: 16px;
+}
+.menu a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+.menu a:hover {
+  color: var(--primary-gold);
+  transform: scale(1.05);
+}
+
+/* CTA buttons */
+.nav-cta .btn {
+  border-radius: 30px;
+  padding: 6px 18px;
+  font-weight: 600;
+  transition: transform 0.3s ease;
+}
+.nav-cta .btn:hover {
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .menu {
+    flex-direction: column;
+    width: 100%;
+  }
+  .menu a {
+    padding: 4px 0;
+  }
+  .nav-cta {
+    width: 100%;
+    justify-content: flex-start;
+  }
+}

@@ -1,57 +1,70 @@
-.about-section{display:grid;grid-template-columns:1fr 520px;gap:28px;align-items:start;padding:28px 0}
-.about-section .lead{margin-bottom:16px}
-.about-section h3{margin-top:0}
-.about-illustration{width:100%;max-width:620px;margin:6px 0}
-.about-illustration svg{width:100%;height:auto;border-radius:12px}
-
-/* About page two-column layout (left text, right VMV cards) */
-.about-page{display:grid;grid-template-columns:1fr 420px;gap:32px;align-items:start;padding:28px 0}
-.about-page .about-content{min-width:0}
-.about-page .about-vmv{align-self:start}
-
-@media(max-width:1000px){
-  .about-section{grid-template-columns:1fr;gap:20px}
-  .about-illustration{order:-1}
-  .about-page{grid-template-columns:1fr;gap:20px}
-  .about-page .about-vmv{order:2}
-  .about-page .about-content{order:1}
+.about-section, .about-page {
+  display: grid;
+  gap: 32px;
+  padding: 32px 0;
+  align-items: start;
 }
 
-/* About panel and info cards */
-.about-panel{background:#f1f6f9;border-radius:14px;padding:22px;margin:18px 0}
-.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
-.info-card{background:#fff;border-radius:12px;padding:34px 18px 22px;box-shadow:0 10px 30px rgba(16,38,58,0.06);text-align:center;position:relative;overflow:visible}
-.info-card .badge{width:64px;height:64px;border-radius:50%;background:linear-gradient(180deg,#0b345f,#123b66);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;position:absolute;left:50%;transform:translate(-50%,-32px)}
-.info-card .badge-gold{background:linear-gradient(180deg,#e0b84a,#d4af37);color:#01213f}
-.info-card .card-body{padding-top:18px}
-.info-card h4{margin:0 0 8px;color:#01213f}
-.info-card p{color:#31505f;font-size:14px;margin:0}
-.est-line{margin-top:20px;color:#31505f;font-weight:600}
+.about-illustration { width: 100%; border-radius: 30px; box-shadow: 0 10px 30px var(--shadow-soft); }
 
-/* New VMV unified box */
-.vmv-box{background:linear-gradient(180deg,#f7fbfd,#eef6fa);border-radius:16px;padding:18px;margin:18px 0}
-.vmv-inner{max-width:620px;margin:0 auto}
-.vmv-cards{display:flex;gap:18px;align-items:stretch;justify-content:space-between}
-.vmv-item{flex:1;display:flex;flex-direction:column;align-items:center}
-.vmv-badge{width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:20px;box-shadow:0 8px 20px rgba(7,20,34,0.08);margin-bottom:10px}
-.vmv-blue{background:linear-gradient(180deg,#0b345f,#123b66)}
-.vmv-gold{background:linear-gradient(180deg,#e0b84a,#d4af37);color:#01213f}
-.vmv-card{background:#fff;border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(16,38,58,0.05);text-align:left;width:100%}
-.vmv-card h4{margin:0 0 8px;color:#01213f}
-.vmv-card p{margin:0;color:#31505f;font-size:14px}
-.vmv-footer{text-align:left;margin-top:14px;color:#2b4b59;font-weight:600}
-
-@media(max-width:1000px){
-  .vmv-inner{max-width:100%}
-  .vmv-cards{flex-direction:column}
-  .vmv-item{align-items:flex-start}
-  .vmv-badge{margin-bottom:12px}
-  .vmv-card{width:100%}
+.about-panel {
+  background: #fff3e6;
+  border-radius: 30px;
+  padding: 32px;
+  margin: 20px 0;
+  box-shadow: 0 8px 25px var(--shadow-soft);
 }
-.more-content{margin-top:18px;padding:22px}
 
-@media(max-width:1000px){
-  .cards-row{grid-template-columns:1fr}
-  .info-card{padding:20px}
-  .info-card .badge{left:28px;transform:translateX(0) translateY(-50%);}
+.cards-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px,1fr)); gap: 20px; margin-top: 24px; }
+
+.info-card {
+  background: #fff;
+  border-radius: 30px;
+  padding: 24px 16px;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 10px 30px var(--shadow-soft);
 }
+.info-card:hover { transform: scale(1.03); }
+
+.info-card .badge {
+  width: 60px; height: 60px; border-radius: 50%;
+  background: var(--primary-orange);
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 18px;
+  position: absolute; left: 50%; top: -30px;
+  transform: translateX(-50%);
+}
+/* ========================== */
+/* Responsive Images Fix       */
+/* ========================== */
+
+img {
+  max-width: 100%;      /* never exceed parent container */
+  height: auto;         /* maintain aspect ratio */
+  display: block;       /* remove inline spacing */
+  border-radius: 20px;  /* soft corners for school-friendly look */
+  object-fit: cover;    /* cover container without stretching */
+}
+
+/* Specific containers (cards, hero images, gallery) */
+.hero-full img,
+.about-illustration img,
+.image-grid img,
+.faculty-card .avatar,
+.info-card img {
+  max-width: 95%;       /* slightly smaller than full container */
+  margin: 0 auto;
+  display: block;
+  border-radius: 30px;  /* rounded, blob-style look */
+}
+
+/* Optional: constrain gallery & grid images */
+.gallery-full .image-grid img,
+.facilities-full .image-grid img {
+  max-height: 220px;   /* avoid very tall images */
+  width: 100%;
+  object-fit: cover;
+}
+

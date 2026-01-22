@@ -1,64 +1,235 @@
-.root, :root{--nav:#001f4d;--gold:#d4af37;--bg:#f7f9fc;--card:#ffffff}
-*{box-sizing:border-box}
-html,body,#root,.app-root{width:100%;height:100%;margin:0}
-body{font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;color:#08263a;background:var(--bg);line-height:1.45}
-.container{max-width:1200px;margin:0 auto;padding:28px}
-.hero{position:relative;color:#fff;min-height:440px;display:flex;align-items:center}
-.hero-media{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(0.45)}
-.hero-content{position:relative;z-index:2;padding:64px 24px}
-.hero h1{font-size:40px;margin:0 0 8px}
-.hero-sub{font-size:18px;opacity:0.95}
-.btn{display:inline-block;padding:10px 14px;border-radius:8px;text-decoration:none}
-.btn-primary{background:var(--gold);color:var(--nav);font-weight:700}
-.btn-ghost{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.18);color:#fff}
-.site-nav{background:var(--nav);color:#fff;position:sticky;top:0;z-index:60;width:100%}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
-.brand{display:flex;gap:12px;align-items:center;color:inherit;text-decoration:none}
-.logo{width:56px;height:56px}
-.brand-title{font-size:16px;margin:0;font-weight:700}
-.brand-sub{font-size:12px;margin:0;opacity:0.9}
-.menu a{color:#cfe8ff;margin:0 10px;text-decoration:none;font-weight:600}
-.menu a:hover{color:#fff}
-.footer-grid{display:grid;grid-template-columns:1fr 200px 200px;gap:18px;padding:28px 0}
-.site-footer{background:#021225;color:#cfe8ff;padding:28px 0;margin-top:40px;width:100%}
-.footer-bottom{text-align:center;padding:12px 0;background:rgba(255,255,255,0.02);margin-top:18px}
-.section-title{margin:24px 0}
-.section-title .eyebrow{color:var(--gold);font-weight:700;margin-bottom:6px}
-.section-title h2{font-size:28px;margin:0}
-.lead{color:#214a60}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:12px}
-.card{background:var(--card);padding:16px;border-radius:10px;box-shadow:0 6px 18px rgba(7,20,34,0.06)}
-.image-grid{display:grid;gap:12px;margin-top:14px}
-.img-card img{width:100%;height:180px;object-fit:cover;border-radius:8px}
-.faculty-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.faculty-card{display:flex;gap:12px;align-items:center}
-.faculty-card .avatar{width:64px;height:64px;border-radius:8px;background:linear-gradient(135deg,#e8eef8,#cfe8ff)}
-.two-col{columns:2}
-.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.map iframe{width:100%;height:300px;border:0}
-.cta-section{background:linear-gradient(90deg,rgba(0,31,77,0.04),rgba(1,33,63,0.02));padding:18px;border-radius:10px;margin:24px 0}
-.admission-cta{background:var(--nav);color:#fff;padding:18px;border-radius:10px;margin:24px 0}
-
-/* Full-bleed section utilities */
-.full-bleed{width:100%;box-sizing:border-box}
-.full-bleed.min-vh{min-height:100vh}
-.hero-full{width:100%;min-height:60vh;background-size:cover;background-position:center;display:flex;align-items:center}
-.hero-full .container{color:#fff;padding:64px 24px}
-.content-full{width:100%;min-height:100vh;padding:48px 0;background:var(--bg)}
-
-@media(max-width:900px){
-  .cards{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr}
-  .faculty-grid{grid-template-columns:1fr}
-  .image-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr}
+:root {
+  --primary-orange: #f89e52;
+  --primary-teal: #5e969a;
+  --primary-gold: #fcd55b;
+  --bg-light: #fdf8f1;
+  --text-dark: #2d4756;
+  --text-muted: #5a6a75;
+  --shadow-soft: rgba(0,0,0,0.08);
+  --shadow-orange: rgba(248, 158, 82, 0.3);
+  --shadow-teal: rgba(94, 150, 154, 0.2);
 }
 
-@media(max-width:900px){
-  .cards{grid-template-columns:1fr}
-  .about-grid{grid-template-columns:1fr}
-  .faculty-grid{grid-template-columns:1fr}
-  .image-grid{grid-template-columns:repeat(2,1fr)}
-  .footer-grid{grid-template-columns:1fr}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root, .app-root {
+  width: 100%;
+  min-height: 100%;
+  font-family: 'Quicksand', 'Fredoka', sans-serif;
+  background: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.5;
 }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 15px var(--shadow-orange);
+}
+.btn-primary { background: var(--primary-orange); color: #fff; }
+.btn-primary:hover { transform: scale(1.05); }
+.btn-secondary { background: var(--primary-teal); color: #fff; }
+.btn-secondary:hover { transform: scale(1.05); }
+
+/* Headings */
+h1,h2,h3,h4,h5,h6 { font-weight: 700; color: var(--text-dark); margin-bottom: 16px; }
+p { margin-bottom: 16px; color: var(--text-muted); }
+
+.text-center { text-align: center; }
+.mt-20 { margin-top: 20px; }
+.mb-20 { margin-bottom: 20px; }
+
+/* Cards */
+.card {
+  background: #fff;
+  border-radius: 30px;
+  padding: 24px;
+  box-shadow: 0 8px 25px var(--shadow-soft);
+  transition: transform 0.3s ease;
+}
+.card:hover { transform: scale(1.03); }
+
+/* Soft full-width sections */
+.full-bleed { width: 100%; box-sizing: border-box; }
+.full-bleed.min-vh { min-height: 100vh; }
+/* Footer Styles */
+.site-footer {
+  background: #123b66; /* distinct color from page background */
+  color: #fff;
+  padding: 48px 28px 28px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid h3, .footer-grid h4 {
+  margin-bottom: 12px;
+  color: #fcd55b; /* gold accent */
+}
+
+.footer-grid p, .footer-grid li, .footer-grid a {
+  font-size: 14px;
+  margin-bottom: 6px;
+  color: #fff;
+}
+
+.footer-grid a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.footer-grid a:hover {
+  color: #fcd55b;
+}
+
+.footer-grid ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding: 16px 0;
+  margin-top: 28px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* Ensure footer stays at bottom if content is short */
+.app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.app-root > main, .app-root > section, .app-root > div {
+  flex: 1; /* pushes footer to bottom */
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+}
+/* ============================= */
+/* Global Spacing & Section Layout */
+/* ============================= */
+
+/* Add vertical spacing between all main sections */
+main > section,
+.content-full,
+.hero-full,
+.home-page > section,
+.about-section,
+.about-page,
+.faculty-full,
+.gallery-full,
+.why-full,
+.facilities-full,
+.contact-full,
+.cta-section {
+  margin-bottom: 60px;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+/* Consistent spacing for headings */
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 20px;
+}
+
+/* Paragraph spacing */
+p {
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+/* Cards and info panels spacing */
+.cards, .cards-row, .faculty-grid, .image-grid {
+  gap: 24px;
+  margin-top: 24px;
+}
+
+/* Info card padding */
+.info-card, .vmv-card, .about-panel, .auth-card {
+  margin-bottom: 24px;
+  padding: 24px;
+}
+
+/* Buttons spacing */
+.btn {
+  margin-top: 12px;
+}
+
+/* Forms & inputs spacing */
+input, select, textarea, button {
+  margin-bottom: 16px;
+}
+
+/* Footer spacing */
+.site-footer {
+  padding-top: 60px;
+  padding-bottom: 40px;
+}
+
+/* Hero section spacing */
+.hero-full, .home-page .hero {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+/* Section dividers (optional waves/blobs) */
+.section-divider {
+  height: 60px;
+  margin: 60px 0;
+  overflow: hidden;
+}
+
+/* Utility spacing classes for one-off adjustments */
+.mt-10 { margin-top: 10px; }
+.mt-20 { margin-top: 20px; }
+.mt-40 { margin-top: 40px; }
+.mb-10 { margin-bottom: 10px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-40 { margin-bottom: 40px; }
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  main > section,
+  .content-full,
+  .hero-full,
+  .about-section,
+  .about-page {
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-bottom: 40px;
+  }
+
+  .cards, .cards-row, .faculty-grid, .image-grid {
+    gap: 16px;
+    margin-top: 16px;
+  }
+
+  .info-card, .vmv-card, .about-panel, .auth-card {
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+}
+

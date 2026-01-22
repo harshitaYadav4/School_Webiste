@@ -1,18 +1,21 @@
 import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import AppRoutes from './routes/AppRoutes'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
+import Navbar from './Components/Navbar'
+import Footer from './Components/Footer'
 import './styles/global.css'
+import { AuthProvider } from './context/AuthContext.jsx';
 
-export default function App(){
+export default function App() {
   return (
-    <BrowserRouter>
-      <div className="app-root">
-        <Navbar />
-        <AppRoutes />
-        <Footer />
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="app-root">
+          <Navbar />
+          <AppRoutes />
+          <Footer />
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
