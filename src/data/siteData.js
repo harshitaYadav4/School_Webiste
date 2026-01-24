@@ -39,5 +39,35 @@ const siteData = {
     'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=60'
   ]
 }
+notices: [
+  {
+    id: 1,
+    title: 'Admission Open 2026–27',
+    date: '2026-02-16',
+    category: 'Admission',
+    content: 'Admissions are now open for Nursery to Class 8.'
+  },
+  {
+    id: 2,
+    title: 'Holi Holiday',
+    date: '2026-03-13',
+    category: 'Holiday',
+    content: 'School will remain closed on account of Holi.'
+  },
+  {
+    id: 3,
+    title: 'Annual Examination',
+    date: '2026-03-25',
+    category: 'Exam',
+    content: 'Annual exams will begin from 25th March.'
+  }
+]
+
+events: [
+  { title: 'Annual Sports Day', date: '2026-01-20' },
+  { title: 'Republic Day Celebration', date: '2026-01-26' },
+  { title: 'Annual Function', date: '2026-02-10' }
+]
+
 
 export default siteData;

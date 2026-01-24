@@ -2,15 +2,16 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
-
 export default function Login() {
   const [role, setRole] = useState('student')
   const { login } = useAuth()
   const navigate = useNavigate()
 
   const handleLogin = () => {
-    login({ role })   // simulate login
+    login({ role })
+
     if (role === 'admin') navigate('/admin')
+    else if (role === 'student') navigate('/student')
     else navigate('/')
   }
 
@@ -27,7 +28,7 @@ export default function Login() {
       <input placeholder="Email" />
       <input placeholder="Password" type="password" />
 
-      <button onClick={handleLogin} className="btn btn-primary">
+      <button onClick={handleLogin}>
         Login
       </button>
     </div>

@@ -1,0 +1,55 @@
+.about-interactive-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
+
+.interactive-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.hover-card {
+  background: #fff;
+  padding: 24px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.35s ease;
+  border-left: 5px solid transparent;
+}
+
+.hover-card:hover,
+.hover-card.active {
+  border-left-color: var(--primary-teal);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.08);
+}
+
+.hover-card h3 {
+  margin-bottom: 10px;
+}
+
+.hover-card p {
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.about-side {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.notice-board ul {
+  padding-left: 18px;
+}
+
+.notice-board li {
+  margin-bottom: 6px;
+}
+
+.quick-links a {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+}

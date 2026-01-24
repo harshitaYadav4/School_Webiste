@@ -20,6 +20,21 @@ export default function Dashboard() {
           <li>Update Gallery</li>
         </ul>
       </section>
+
+      <section className="admin-section">
+  <h3>Manage Notices</h3>
+
+  <form className="card">
+    <input placeholder="Notice title" />
+    <select>
+      <option>Admission</option>
+      <option>Holiday</option>
+      <option>Exam</option>
+    </select>
+    <textarea placeholder="Notice content" rows="3" />
+    <button className="btn btn-primary">Add Notice</button>
+  </form>
+</section>
     </main>
   )
 }
