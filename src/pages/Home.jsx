@@ -7,6 +7,7 @@ import GalleryPreview from "../components/GalleryPreview";
 import AdmissionCTA from "../components/AdmissionCTA";
 import FacultyGrid from "../components/FacultyGrid";
 import siteData from "../data/siteData";
+import banner from "../assets/images/banner.png";
 import "../styles/home.css";
 import Loader from "../components/Common/Loader";
 import AboutPreview from "../Components/home/AboutPreview";
@@ -29,7 +30,7 @@ export default function Home() {
       <section
         className="hero-full full-bleed"
         style={{
-          backgroundImage: `linear-gradient(rgba(1,33,63,0.45),rgba(0,0,0,0.18)), url(${siteData.images[0]})`,
+          backgroundImage: `linear-gradient(rgba(1,33,63,0.45),rgba(0,0,0,0.18)), url(${banner})`,
         }}
       >
         <div className="container">
@@ -50,7 +51,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="content-full full-bleed">
+      <section className="content-full full-bleed alt-bg">
         <div className="container">
           <AboutPreview />
         </div>
@@ -62,7 +63,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="why-full full-bleed">
+      <section className="why-full full-bleed alt-bg">
         <div className="container">
           <h2>Why Choose Our School</h2>
           <div className="cards">
@@ -90,7 +91,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="highlights-full full-bleed">
+      <section className="highlights-full full-bleed alt-bg">
         <div className="container">
           <HighlightsSection />
         </div>
@@ -110,7 +111,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="faculty-full full-bleed">
+      <section className="faculty-full full-bleed alt-bg">
         <div className="container">
           <h3>Faculty Preview</h3>
           <FacultyGrid people={siteData.faculty} />
@@ -123,7 +124,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="admission-full full-bleed">
+      <section className="admission-full full-bleed alt-bg">
         <div className="container">
           <AdmissionCTA />
         </div>
@@ -131,28 +132,31 @@ export default function Home() {
 
       <section className="contact-full full-bleed">
         <div className="container">
-          <h3>Get In Touch</h3>
-          <p>
-            Call us at {siteData.school.phones.join(" / ")} or email{" "}
-            {siteData.school.email}
-          </p>
-          <a className="btn btn-primary" href="/contact">
-            Contact Us
-          </a>
+          <div className="contact-cta">
+            <div className="contact-info">
+              <h3>Get In Touch</h3>
+              <p className="muted">Call us at <strong>{siteData.school.phones.join(' / ')}</strong> or email <strong>{siteData.school.email}</strong></p>
+              <p className="small">Campus: {siteData.school.address || 'Village Nawadih, Rohtas'}</p>
+            </div>
+            <div className="contact-actions">
+              <a className="btn btn-primary" href="/contact">Contact Us</a>
+              <a className="btn btn-ghost" href="tel:{siteData.school.phones[0]}">Call Now</a>
+            </div>
+          </div>
         </div>
       </section>
       <section className="events-full full-bleed">
-        <div className="container">
+        <div className="container alt-bg">
           <EventsPreview />
         </div>
       </section>
-
+{/* 
       <section className="content-full full-bleed">
         <div className="container">
           <AboutPreview />
           <StatsStrip />
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

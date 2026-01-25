@@ -3,9 +3,19 @@ import React from 'react'
 export default function AuthLayout({ title, children }) {
   return (
     <main className="auth-page">
-      <div className="auth-card">
-        <h2>{title}</h2>
-        {children}
+      <div className="auth-wrapper">
+        <aside className="auth-side">
+          <div className="auth-brand">
+            <h2>Global Model Public School</h2>
+            <p className="muted">A caring, values-driven education — Nursery to Grade 8</p>
+          </div>
+          <div className="auth-illustration" aria-hidden />
+        </aside>
+
+        <div className="auth-card">
+          <h2>{title}</h2>
+          {children}
+        </div>
       </div>
     </main>
   )

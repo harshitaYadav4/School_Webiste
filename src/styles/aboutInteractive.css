@@ -53,3 +53,19 @@
   margin-bottom: 8px;
   font-weight: 500;
 }
+
+/* Responsive: stack interactive section on tablet/mobile */
+@media (max-width: 900px) {
+  .about-interactive-grid { grid-template-columns: 1fr; gap: 18px }
+  .interactive-cards { order: 1 }
+  .about-side { order: 2 }
+  .hover-card { padding: 18px }
+  .about-side .card { padding: 16px }
+  .about-side .quick-links a { font-size: 15px }
+}
+
+/* On very small screens, make hover-card content always visible when active and allow collapse */
+@media (max-width: 600px) {
+  .hover-card { padding: 14px }
+  .hover-card p { font-size: 14px }
+}

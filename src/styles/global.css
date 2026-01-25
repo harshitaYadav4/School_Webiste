@@ -8,6 +8,10 @@
   --shadow-soft: rgba(0,0,0,0.08);
   --shadow-orange: rgba(248, 158, 82, 0.3);
   --shadow-teal: rgba(94, 150, 154, 0.2);
+  /* Responsive breakpoints */
+  --bp-sm: 600px;
+  --bp-md: 900px;
+  --bp-lg: 1200px;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -22,6 +26,11 @@ html, body, #root, .app-root {
 }
 
 .container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+/* Responsive utilities */
+.responsive-img, img, picture { max-width: 100%; height: auto; display: block; }
+.grid { display: grid; gap: 24px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); }
+.stack { display: flex; flex-direction: column; gap: 12px; }
 
 /* Buttons */
 .btn {
@@ -160,6 +169,8 @@ p { margin-bottom: 16px; color: var(--text-muted); }
     grid-template-columns: 1fr;
     text-align: center;
   }
+  /* tighter container padding on small screens */
+  .container { padding: 16px; }
 }
 /* ============================= */
 /* Global Spacing & Section Layout */
@@ -178,9 +189,9 @@ main > section,
 .facilities-full,
 .contact-full,
 .cta-section {
-  margin-bottom: 36px;
-  padding-top: 40px;
-  padding-bottom: 40px;
+  margin-bottom: 20px;
+  padding-top: 28px;
+  padding-bottom: 28px;
 }
 
 /* Consistent spacing for headings */
@@ -250,9 +261,9 @@ input, select, textarea, button {
   .hero-full,
   .about-section,
   .about-page {
-    padding-top: 24px;
-    padding-bottom: 24px;
-    margin-bottom: 24px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
   }
 
   .cards, .cards-row, .faculty-grid, .image-grid {
@@ -264,5 +275,10 @@ input, select, textarea, button {
     padding: 18px;
     margin-bottom: 18px;
   }
+  /* Make form controls full width on small screens */
+  input, select, textarea, button { width: 100%; }
+  /* Slightly scale down headings to fit narrow viewports */
+  h1 { font-size: 1.6rem; }
+  h2 { font-size: 1.35rem; }
 }
 

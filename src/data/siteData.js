@@ -1,3 +1,14 @@
+import banshikaImage from '../assets/facultyimg/21.jpeg';
+import kajalImage from '../assets/facultyimg/23.jpeg';
+import piyushImage from '../assets/facultyimg/24.jpeg';
+import akankshaImage from '../assets/facultyimg/25.jpeg';
+import abcImage from '../assets/facultyimg/26.jpeg';
+import sonamImage from '../assets/facultyimg/22.jpeg';
+
+
+
+
+
 const siteData = {
   school: {
     name: 'Global Model Public School',
@@ -12,16 +23,18 @@ const siteData = {
     directorImage: 'https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=600&q=60',
     address: `Village Nawadih, PS Rohtas,\nDistrict Rohtas, State Bihar – 821308`,
     phones: ['9508579707','6299101194'],
-    email: 'globalmodalpublicschool2026@gmail.com',
+    email: 'globalmodelpublicschool2026@gmail.com',
     officeTiming: '9:00 AM – 2:30 PM',
     schoolTiming: '9:00 AM – 2:30 PM',
     admissionOpenDate: '16 February 2026'
   },
   faculty: [
-    { name: 'Piyush Raj Gupta', role: 'Principal', qual: 'BSc Chemistry' },
-    { name: 'Akanksha Raj', role: 'Teacher', qual: 'BSc Mathematics' },
-    { name: 'Kajal Kumari', role: 'Teacher', qual: 'BSc Biology' },
-    { name: 'Sonam Kumari', role: 'Teacher', qual: 'B.Ed (AU)' }
+    { name: 'Piyush Raj Gupta', role: 'Principal', qual: 'BSc Chemistry', image: piyushImage },
+    { name: 'Akanksha Raj', role: 'Teacher', qual: 'BSc Mathematics', image: akankshaImage },
+    { name: 'Kajal Kumari', role: 'Teacher', qual: 'BSc Biology', image: kajalImage },
+    { name: 'Sonam Kumari', role: 'Teacher', qual: 'B.Ed (AU)', image: sonamImage },
+    { name: 'Banshika Gupta', role: 'Teacher', qual: 'B.Ed', image: banshikaImage },
+    { name: 'ABC', role: 'Teacher', qual: 'B.Ed', image: abcImage }
   ],
   subjects: ['English','Hindi','Sanskrit','Mathematics','Science','Social Science','Computer','GK','Spoken English'],
   activities: ['Spoken English','Yoga','Sports'],
@@ -37,9 +50,8 @@ const siteData = {
     'https://images.unsplash.com/photo-1557800636-894a64c1696f?auto=format&fit=crop&w=1600&q=60',
     'https://images.unsplash.com/photo-1601582584113-2d7c2b43a1a9?auto=format&fit=crop&w=1600&q=60',
     'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1600&q=60'
-  ]
-}
-notices: [
+  ],
+  notices: [
   {
     id: 1,
     title: 'Admission Open 2026–27',
@@ -61,13 +73,12 @@ notices: [
     category: 'Exam',
     content: 'Annual exams will begin from 25th March.'
   }
-]
-
-events: [
-  { title: 'Annual Sports Day', date: '2026-01-20' },
-  { title: 'Republic Day Celebration', date: '2026-01-26' },
-  { title: 'Annual Function', date: '2026-02-10' }
-]
-
+  ],
+  events: [
+    { title: 'Annual Sports Day', date: '2026-01-20' },
+    { title: 'Republic Day Celebration', date: '2026-01-26' },
+    { title: 'Annual Function', date: '2026-02-10' }
+  ]
+}
 
 export default siteData;

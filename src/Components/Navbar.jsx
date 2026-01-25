@@ -1,12 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './nav.css'
-import logo from '../assets/images/logo.png'
+import logo from '../assets/images/Logo.png'
 import { useAuth } from '../context/AuthContext'
 
 export default function Navbar() {
   const { user, logout } = useAuth()
   const navigate = useNavigate()
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleLogout = () => {
     logout()
@@ -42,28 +43,64 @@ export default function Navbar() {
           )}
         </nav>
 
-        {/* RIGHT SIDE CTA */}
-        <div className="nav-cta">
-
-          {!user && (
-            <>
-              <Link to="/login" className="btn btn-ghost">Login</Link>
-              <Link to="/register" className="btn btn-primary">Register</Link>
-            </>
-          )}
-
-          {user && (
-            <div className="user-menu">
-              <span className="user-role">
-                {user.role.toUpperCase()}
-              </span>
-              <button onClick={handleLogout} className="btn btn-ghost">
-                Logout
-              </button>
+        {/* Mobile drawer */}
+        <div className={mobileOpen ? 'mobile-drawer open' : 'mobile-drawer'}>
+          <nav className="mobile-menu">
+            <Link to="/" onClick={() => setMobileOpen(false)}>Home</Link>
+            <Link to="/about" onClick={() => setMobileOpen(false)}>About</Link>
+            <Link to="/academics" onClick={() => setMobileOpen(false)}>Academics</Link>
+            <Link to="/admission" onClick={() => setMobileOpen(false)}>Admission</Link>
+            <Link to="/faculty" onClick={() => setMobileOpen(false)}>Faculty</Link>
+            <Link to="/gallery" onClick={() => setMobileOpen(false)}>Gallery</Link>
+            <Link to="/contact" onClick={() => setMobileOpen(false)}>Contact</Link>
+            {user?.role === 'admin' && (
+              <Link to="/admin" className="admin-link" onClick={() => setMobileOpen(false)}>Dashboard</Link>
+            )}
+            <div className="mobile-cta">
+              {!user ? (
+                <>
+                  <Link to="/login" className="btn btn-ghost" onClick={() => setMobileOpen(false)}>Login</Link>
+                  <Link to="/register" className="btn btn-primary" onClick={() => setMobileOpen(false)}>Register</Link>
+                </>
+              ) : (
+                <>
+                  <div className="user-menu">
+                    <span className="user-role">{user.role.toUpperCase()}</span>
+                    <button onClick={() => { handleLogout(); setMobileOpen(false) }} className="btn btn-ghost">Logout</button>
+                  </div>
+                </>
+              )}
             </div>
-          )}
-
+          </nav>
+          <div className="drawer-overlay" onClick={() => setMobileOpen(false)} />
         </div>
+
+        {/* RIGHT: CTA + Mobile hamburger toggle */}
+        <div className="nav-right">
+          <div className="nav-cta">
+            {!user ? (
+              <>
+                <Link to="/login" className="btn btn-ghost">Login</Link>
+                <Link to="/register" className="btn btn-primary">Register</Link>
+              </>
+            ) : (
+              <div className="user-menu">
+                <span className="user-role">{user.role.toUpperCase()}</span>
+                <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
+              </div>
+            )}
+          </div>
+
+          <button
+            className="mobile-toggle"
+            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            onClick={() => setMobileOpen(v => !v)}
+          >
+            <span className={mobileOpen ? 'hamburger open' : 'hamburger'}></span>
+          </button>
+        </div>
+
+        {/* header actions moved into .nav-right; Login/Register removed from top bar */}
 
       </div>
     </header>

@@ -14,6 +14,10 @@ export default function AboutInteractive() {
           <div
             className={`hover-card ${active === 'vision' ? 'active' : ''}`}
             onMouseEnter={() => setActive('vision')}
+            onClick={() => setActive(prev => prev === 'vision' ? null : 'vision')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if(e.key==='Enter' || e.key===' ') setActive(prev => prev === 'vision' ? null : 'vision') }}
           >
             <h3>Our Vision & Mission</h3>
             {active === 'vision' && (
@@ -38,6 +42,10 @@ export default function AboutInteractive() {
           <div
             className={`hover-card ${active === 'founder' ? 'active' : ''}`}
             onMouseEnter={() => setActive('founder')}
+            onClick={() => setActive(prev => prev === 'founder' ? null : 'founder')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if(e.key==='Enter' || e.key===' ') setActive(prev => prev === 'founder' ? null : 'founder') }}
           >
             <h3>Our Inspiration & Founder</h3>
             {active === 'founder' && (
@@ -52,6 +60,10 @@ export default function AboutInteractive() {
           <div
             className={`hover-card ${active === 'principal' ? 'active' : ''}`}
             onMouseEnter={() => setActive('principal')}
+            onClick={() => setActive(prev => prev === 'principal' ? null : 'principal')}
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => { if(e.key==='Enter' || e.key===' ') setActive(prev => prev === 'principal' ? null : 'principal') }}
           >
             <h3>Principal’s Message</h3>
             {active === 'principal' && (
